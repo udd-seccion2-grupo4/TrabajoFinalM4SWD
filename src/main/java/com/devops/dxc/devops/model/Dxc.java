@@ -24,7 +24,13 @@ public class Dxc implements Serializable{
 	}
 
 	public int getDxc() {
-		return Util.getDxc(ahorro,sueldo);
+		// TODO: ver caso donde WS no responda o se caiga
+		try {
+			return Util.getDxc(ahorro,sueldo);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
 	}
 	public void setDxc(int dxc) {
 		this.dxc = dxc;
