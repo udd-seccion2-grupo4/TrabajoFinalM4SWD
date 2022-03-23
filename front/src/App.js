@@ -13,7 +13,7 @@ export const App = () => {
     setLoading(true);
     setResponse(null);
     setError(null);
-    fetch('/rest/msdxc/dxc?sueldo=10&ahorro=10000')
+    fetch(`/rest/msdxc/dxc?sueldo=${values.sueldo}&ahorro=${values.ahorro}`)
       .then(response => {
         if (!response.ok) {
           return Promise.reject(response.status);
