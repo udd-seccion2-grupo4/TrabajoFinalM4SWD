@@ -1,15 +1,5 @@
 package com.devops.dxc.devops.model;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 public class Util {
 
     /**
@@ -31,17 +21,13 @@ public class Util {
      * @return
      * @throws Exception
      */
-    public static int getDxc(int ahorro, int sueldo) throws Exception {
- 
-        int valorUF = getUf();
-
-        if (((ahorro * 0.1) / valorUF) > 150) {
-            return (int) (150 * valorUF);
-            // TODO: revisar condición para (ahorro*0.1)<=1000000 && ahorro >=1000000
+    public static int getDxc(int ahorro, int sueldo, int uf) {
+        if (((ahorro * 0.1) / uf) > 150) {
+            return (int) (150 * uf);
             // en texto no sale claro que el retiro es de 1M
-        } else if ((ahorro * 0.1) <= 35*valorUF && ahorro >= 35*valorUF) {
-            return (int) 35*valorUF;
-        } else if (ahorro <= 35*valorUF) {
+        } else if ((ahorro * 0.1) <= 35 * uf && ahorro >= 35 * uf) {
+            return (int) 35 * uf;
+        } else if (ahorro <= 35 * uf) {
             return (int) ahorro;
         } else {
             return (int) (ahorro * 0.1);
@@ -71,47 +57,4 @@ public class Util {
     public static int getSaldo(int ahorro, int dxc, int impuesto) {
         return ahorro - dxc - impuesto;
     }
-
-    /**
-     * Método que retorna el valor de la UF. Este método debe ser refactorizado por
-     * una integración a un servicio
-     * que retorne la UF en tiempo real. Por ejemplo mindicador.cl
-     * 
-     * @return
-     * @throws Exception
-     */
-    public static int getUf() throws Exception {
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-        Date date = new Date();
-
-        String jsonUf = peticionHttpGet("https://mindicador.cl/api/uf/" + formatter.format(date));
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        // UF valor = objectMapper.readValue(jsonUf, UF.class);
-        JsonNode jsonNode = objectMapper.readTree(jsonUf);
-        return jsonNode.get("serie").get(0).get("valor").asInt();
-    }
-
-    public static String peticionHttpGet(String urlParaVisitar) throws Exception {
-        // Esto es lo que vamos a devolver
-        StringBuilder resultado = new StringBuilder();
-        // Crear un objeto de tipo URL
-        URL url = new URL(urlParaVisitar);
-
-        // Abrir la conexión e indicar que será de tipo GET
-        HttpURLConnection conexion = (HttpURLConnection) url.openConnection();
-        conexion.setRequestMethod("GET");
-        // Búferes para leer
-        BufferedReader rd = new BufferedReader(new InputStreamReader(conexion.getInputStream()));
-        String linea;
-        // Mientras el BufferedReader se pueda leer, agregar contenido a resultado
-        while ((linea = rd.readLine()) != null) {
-            resultado.append(linea);
-        }
-        // Cerrar el BufferedReader
-        rd.close();
-        return resultado.toString();
-    }
-
 }
