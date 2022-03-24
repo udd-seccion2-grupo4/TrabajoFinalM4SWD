@@ -18,7 +18,6 @@ public class Dxc implements Serializable {
 	public Dxc(int ahorro, int sueldo) {
 		this.ahorro = ahorro;
 		this.sueldo = sueldo;
-
 	}
 
 	public Dxc() {
@@ -27,7 +26,8 @@ public class Dxc implements Serializable {
 	public int getDxc() {
 		// TODO: ver caso donde WS no responda o se caiga
 		try {
-			return Util.getDxc(ahorro, sueldo);
+			this.dxc = Util.getDxc(ahorro, sueldo);
+			return dxc;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return 0;
@@ -38,17 +38,21 @@ public class Dxc implements Serializable {
 		this.dxc = dxc;
 	}
 
-	public int getSaldo() {
-		return saldo;
+	public int getImpuesto() {
+		//return impuesto;
+		this.impuesto = Util.getImpuesto(sueldo, dxc);
+		return impuesto;
 	}
+	
+	public int getSaldo() {
+		this.saldo = Util.getSaldo(ahorro, dxc, impuesto);
+		return saldo;
+	}	
 
 	public void setSaldo(int saldo) {
 		this.saldo = saldo;
 	}
 
-	public int getImpuesto() {
-		return impuesto;
-	}
 
 	public void setImpuesto(int impuesto) {
 		this.impuesto = impuesto;
