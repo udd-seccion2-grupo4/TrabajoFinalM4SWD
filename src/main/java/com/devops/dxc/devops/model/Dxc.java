@@ -13,6 +13,10 @@ public class Dxc implements Serializable {
 
 	public Dxc(int sueldo, int ahorro, int uf, int dxc, int impuesto, int saldo) {
 		this.sueldo = sueldo;
+		this.ahorro = ahorro;
+		this.uf = uf;
+		this.dxc = dxc;
+		this.saldo = saldo;
 	}
 
 	public int getUf() {
