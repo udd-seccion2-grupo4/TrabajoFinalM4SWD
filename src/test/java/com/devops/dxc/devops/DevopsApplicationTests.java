@@ -26,11 +26,6 @@ class DevopsApplicationTests {
 	}
 
 	@Test
-	public void testSaldo() throws Exception {
-		assertEquals(0, Util.getImpuesto(200_000, 100));
-	}
-
-	@Test
 	public void testImpuestoSueldoAlto() throws Exception {
 		assertEquals(19, Util.getImpuesto(6_000_000, 100));
 	}
