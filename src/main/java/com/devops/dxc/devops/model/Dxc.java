@@ -18,6 +18,7 @@ public class Dxc implements Serializable {
 	public Dxc(int ahorro, int sueldo) {
 		this.ahorro = ahorro;
 		this.sueldo = sueldo;
+
 	}
 
 	public Dxc() {

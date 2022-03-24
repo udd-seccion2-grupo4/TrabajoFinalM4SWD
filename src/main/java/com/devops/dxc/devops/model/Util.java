@@ -27,19 +27,21 @@ public class Util {
      * 
      * @param ahorro
      * @param sueldo
+     * @param impuesto
      * @return
      * @throws Exception
      */
     public static int getDxc(int ahorro, int sueldo) throws Exception {
-        // TODO: ver condición de fecha inicio (jueves10 diciembre con un año para
-        // retiro)
-        if (((ahorro * 0.1) / getUf()) > 150) {
-            return (int) (150 * getUf());
+ 
+        int valorUF = getUf();
+
+        if (((ahorro * 0.1) / valorUF) > 150) {
+            return (int) (150 * valorUF);
             // TODO: revisar condición para (ahorro*0.1)<=1000000 && ahorro >=1000000
             // en texto no sale claro que el retiro es de 1M
-        } else if ((ahorro * 0.1) <= 1000000 && ahorro >= 1000000) {
-            return (int) 1000000;
-        } else if (ahorro <= 1000000) {
+        } else if ((ahorro * 0.1) <= 35*valorUF && ahorro >= 35*valorUF) {
+            return (int) 35*valorUF;
+        } else if (ahorro <= 35*valorUF) {
             return (int) ahorro;
         } else {
             return (int) (ahorro * 0.1);
@@ -60,7 +62,7 @@ public class Util {
      * https://www.previsionsocial.gob.cl/sps/preguntas-frecuentes-nuevo-retiro-seguro-10/
      **/
     public static int getImpuesto(int sueldo, int dxc) {
-        return sueldo >= 1_500_000 ? (int) (dxc * 0.19) : 0;
+        return sueldo >= 1500000 ? (int) (dxc * 0.19) : 0;
     }
 
     /**
