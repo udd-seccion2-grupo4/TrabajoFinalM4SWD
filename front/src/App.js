@@ -64,11 +64,12 @@ export const App = () => {
               bordered
               title="Resultado"
             >
-              <Descriptions.Item label="10 %">$ {Intl.NumberFormat('es-CL').format(response.dxc)}</Descriptions.Item>
-              <Descriptions.Item label="Saldo">$ {Intl.NumberFormat('es-CL').format(response.saldo)}</Descriptions.Item>
-              <Descriptions.Item label="Impuesto">$ {Intl.NumberFormat('es-CL').format(response.impuesto)}</Descriptions.Item>
-              <Descriptions.Item label="Sueldo">$ {Intl.NumberFormat('es-CL').format(response.sueldo)}</Descriptions.Item>
-              <Descriptions.Item label="Ahorro">$ {Intl.NumberFormat('es-CL').format(response.ahorro)}</Descriptions.Item>
+              <Descriptions.Item label="10 %"><span id="calc_dxc">$ {Intl.NumberFormat('es-CL').format(response.dxc)}</span></Descriptions.Item>
+              <Descriptions.Item label="Saldo"><span id="calc_saldo">$ {Intl.NumberFormat('es-CL').format(response.saldo)}</span></Descriptions.Item>
+              <Descriptions.Item label="Impuesto"><span id="calc_impuesto">$ {Intl.NumberFormat('es-CL').format(response.impuesto)}</span></Descriptions.Item>
+              <Descriptions.Item label="Sueldo"><span id="calc_sueldo">$ {Intl.NumberFormat('es-CL').format(response.sueldo)}</span></Descriptions.Item>
+              <Descriptions.Item label="Ahorro"><span id="calc_ahorro">$ {Intl.NumberFormat('es-CL').format(response.ahorro)}</span></Descriptions.Item>
+              <Descriptions.Item label="UF"><span id="calc_uf">$ {Intl.NumberFormat('es-CL').format(response.uf)}</span></Descriptions.Item>
             </Descriptions>
           </Space>
         </Col>
