@@ -21,16 +21,16 @@ public class Util {
      * @return
      * @throws Exception
      */
-    public static int getDxc(int ahorro, int sueldo, int uf) {
+    public static long getDxc(long ahorro, long sueldo, int uf) {
         if (((ahorro * 0.1) / uf) > 150) {
-            return (int) (150 * uf);
+            return (long) (150 * uf);
             // en texto no sale claro que el retiro es de 1M
         } else if ((ahorro * 0.1) <= 35 * uf && ahorro >= 35 * uf) {
-            return (int) 35 * uf;
+            return (long) 35 * uf;
         } else if (ahorro <= 35 * uf) {
-            return (int) ahorro;
+            return (long) ahorro;
         } else {
-            return (int) (ahorro * 0.1);
+            return (long) (ahorro * 0.1);
         }
     }
 
@@ -47,14 +47,14 @@ public class Util {
      * Fuente:
      * https://www.previsionsocial.gob.cl/sps/preguntas-frecuentes-nuevo-retiro-seguro-10/
      **/
-    public static int getImpuesto(int sueldo, int dxc) {
-        return sueldo >= 1500000 ? (int) (dxc * 0.19) : 0;
+    public static long getImpuesto(long sueldo, long dxc) {
+        return sueldo >= 1500000 ? (long) (dxc * 0.19) : 0;
     }
 
     /**
      * Método para obtener saldo restante luego de retirar el 10%
      */
-    public static int getSaldo(int ahorro, int dxc, int impuesto) {
-        return ahorro - dxc - impuesto;
+    public static long getSaldo(long ahorro, long dxc) {
+        return ahorro - dxc;
     }
 }

@@ -24,8 +24,8 @@ public class RestData {
 
 	@GetMapping(path = "/dxc", produces = MediaType.APPLICATION_JSON_VALUE)
 	public @ResponseBody Dxc getData(
-			@RequestParam(name = "sueldo") int sueldo,
-			@RequestParam(name = "ahorro") int ahorro) throws UFNoDisponibleException {
+			@RequestParam(name = "sueldo") long sueldo,
+			@RequestParam(name = "ahorro") long ahorro) throws UFNoDisponibleException {
 
 		LOGGER.log(Level.INFO, "<Trabajo DevOps - DXC> <Consultado Diez por ciento>");
 

@@ -13,11 +13,11 @@ public class Calculadora {
         this.ufProvider = ufProvider;
     }
 
-    public Dxc calcularDxC(Date dia, int sueldo, int ahorro) throws UFNoDisponibleException {
+    public Dxc calcularDxC(Date dia, long sueldo, long ahorro) throws UFNoDisponibleException {
         int uf = this.ufProvider.getPorDia(dia);
-        int dxc = Util.getDxc(ahorro, sueldo, uf);
-        int impuesto = Util.getImpuesto(sueldo, dxc);
-        int saldo = Util.getSaldo(ahorro, dxc, impuesto);
+        long dxc = Util.getDxc(ahorro, sueldo, uf);
+        long impuesto = Util.getImpuesto(sueldo, dxc);
+        long saldo = Util.getSaldo(ahorro, dxc);
         Dxc response = new Dxc(sueldo, ahorro, uf, dxc, impuesto, saldo);
         return response;
     }

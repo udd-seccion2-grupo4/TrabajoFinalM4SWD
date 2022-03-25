@@ -13,10 +13,6 @@ public class UFProviderMock implements UFProvider {
         this.uf = uf;
     }
 
-    public int getUf() {
-        return uf;
-    }
-
     @Override
     public int getPorDia(Date dia) throws UFNoDisponibleException {
         return uf;
