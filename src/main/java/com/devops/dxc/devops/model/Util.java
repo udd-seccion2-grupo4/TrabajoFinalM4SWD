@@ -48,6 +48,8 @@ public class Util {
      * https://www.previsionsocial.gob.cl/sps/preguntas-frecuentes-nuevo-retiro-seguro-10/
      **/
     public static long getImpuesto(long sueldo, long dxc) {
+        // según lo conversado en clases, se simplificó el calculo a 19%
+        // para sueldos mayores o iguales a 1.500.000
         return sueldo >= 1500000 ? (long) (dxc * 0.19) : 0;
     }
 

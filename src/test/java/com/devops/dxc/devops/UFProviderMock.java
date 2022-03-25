@@ -2,7 +2,7 @@ package com.devops.dxc.devops;
 
 import java.util.Date;
 
-import com.devops.dxc.devops.service.UFNoDisponibleException;
+import com.devops.dxc.devops.excepcion.UFNoDisponibleException;
 import com.devops.dxc.devops.service.UFProvider;
 
 public class UFProviderMock implements UFProvider {

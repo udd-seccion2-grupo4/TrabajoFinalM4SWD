@@ -7,6 +7,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.devops.dxc.devops.excepcion.UFNoDisponibleException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -19,7 +20,6 @@ public class UFProviderMiIndicador implements UFProvider {
         try {
             jsonUf = peticionHttpGet("https://mindicador.cl/api/uf/" + formatter.format(dia));
             ObjectMapper objectMapper = new ObjectMapper();
-            // UF valor = objectMapper.readValue(jsonUf, UF.class);
             JsonNode jsonNode = objectMapper.readTree(jsonUf);
             return jsonNode.get("serie").get(0).get("valor").asInt();
         } catch (Exception e) {
