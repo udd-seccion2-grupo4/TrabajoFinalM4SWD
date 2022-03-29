@@ -1,11 +1,26 @@
+# clean
+
+`./mvnw clean`
+
+# compile
+
+`./mvnw compile -e`
 # run
 
 `./mvnw spring-boot:run`
 
-# test
+# url servicio
+
+`http://localhost:8081`
+
+# junit
 
 `./mvnw test`
 
-# url 
+# postman test con newman
 
-`http://localhost:8081`
+`newman run Dxc.postman_collection.json`
+
+# instalar newman
+
+`npm install -g newman`
