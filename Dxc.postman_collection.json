@@ -21,8 +21,8 @@
 							"pm.test(\"Codigo de estado 200\", () => {",
 							"  pm.response.to.have.status(200);",
 							"});",
-							"pm.test(\"Response time is less than 1500ms\", function () {",
-							"    pm.expect(pm.response.responseTime).to.be.below(1500);",
+							"pm.test(\"Response time is less than 5000ms\", function () {",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);",
 							"});"
 						],
 						"type": "text/javascript"
@@ -76,8 +76,8 @@
 							"pm.test(\"Codigo de estado 200\", () => {\r",
 							"  pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 1500ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+							"pm.test(\"Response time is less than 5000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -133,8 +133,8 @@
 							"pm.test(\"Codigo de estado 200\", () => {\r",
 							"  pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Response time is less than 1500ms\", function () {\r",
-							"    pm.expect(pm.response.responseTime).to.be.below(1500);\r",
+							"pm.test(\"Response time is less than 5000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
 							"});"
 						],
 						"type": "text/javascript"
