@@ -28,6 +28,8 @@ pipeline {
         stage('Integration Test') {
             steps {
                  script {
+                    sh  "./mvnw spring-boot:run &"
+                    sh  "sleep 10"
                     sh  "newman run Dxc.postman_collection.json"
                 }
             }
