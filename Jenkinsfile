@@ -4,7 +4,7 @@ pipeline {
         stage('Clean') {
             steps {
                 script {
-                        sh  "./mvnw clean"           
+                        sh  "./mvnw clean"      
                 }
             }
         }
@@ -12,15 +12,23 @@ pipeline {
         stage('Compile') {
             steps {
                 script {
-                        sh  "./mvnw compile -e"           
+                        sh  "./mvnw compile -e"
                 }
             }
         }
 
-        stage('Test') {
+        stage('Unit Test') {
             steps {
                  script {
-                    sh  "./mvnw test"           
+                    sh  "./mvnw test"      
+                }
+            }
+        }
+
+        stage('Integration Test') {
+            steps {
+                 script {
+                    sh  "newman run Dxc.postman_collection.json"
                 }
             }
         }
